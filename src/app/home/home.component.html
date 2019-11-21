@@ -1,0 +1,64 @@
+<nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand text-white">JWT Auth System</a>
+    <button class="btn btn-danger my-2 my-sm-0" (click)="onLogout()">Logout</button>
+  </nav>
+
+  <div class="card m-5" style="width:18rem" *ngIf="userDetails">
+    <ul class="list-group">
+      <li class="list-group-item"><strong>Username : </strong>{{userDetails.userName}}</li>
+      <li class="list-group-item"><strong>Domain : </strong>{{userDetails.domainName}}</li>
+      <li class="list-group-item"><strong>Email : </strong>{{userDetails.email}}</li>
+    </ul>
+    <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+      <div class="form-group">
+          <input name="Username" 
+          
+          #Username="ngModel"
+          [(ngModel)] = "qService.formData.Username"
+          />
+      </div>
+
+      <div class="form-group">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text bg-white">
+                <i class="far fa-globe"></i>
+            </div>
+        </div>
+        <select class="form-control" 
+                name="CountryFk" 
+                #CountryFk="ngModel" 
+                [(ngModel)]="qService.formData.CountryFk" >
+            <option value="0">--Select Country--</option>
+            <option *ngFor="let country of countries" value={{country.countryId}}>
+                {{country.countryName}}
+            </option>
+        </select>
+        </div>
+      </div>
+      <div class="from-group">
+        <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text bg-white">
+                        <i class="far fa-globe"></i>
+                    </div>
+                </div>
+                <select class="form-control" 
+                        name="TierFk" 
+                        #TierFk="ngModel" 
+                        [(ngModel)]="qService.formData.TierFk" >
+                    <option value="0">--Select Tier--</option>
+                    <option *ngFor="let tier of tiers" value={{tier.tierId}}>
+                        {{tier.tierName}}
+                    </option>
+                </select>
+        </div>
+    </div>
+      
+      <div class="form-group"> 
+        <button class="btn btn-success btn-lg btn-block" type="submit" [disabled]="form.invalid">
+            <i class="fas fa-plus"></i> Go to CRI Questionire
+        </button>
+    </div>
+    </form>
+  </div>
