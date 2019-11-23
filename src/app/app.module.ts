@@ -14,6 +14,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { LoginComponent } from './user/login/login.component';
 import { HomeComponent } from './home/home.component';
 import { AuthInterceptor } from './auth/auth.interceptor';
+import { PlantsComponent } from './plants/plants.component';
+import { PlantDetailComponent } from './plants/plant-detail/plant-detail.component';
 
 
 @NgModule({
@@ -22,7 +24,9 @@ import { AuthInterceptor } from './auth/auth.interceptor';
     UserComponent,
     RegistrationComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    PlantsComponent,
+    PlantDetailComponent
   ],
   imports: [
     BrowserModule,
