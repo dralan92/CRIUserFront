@@ -1,13 +1,10 @@
 <div *ngIf="plant">
-
     <h2>{{plant.plantName | uppercase}} Details</h2>
     <div><span>id: </span>{{plant.plantId}}</div>
-    <div><span>Last watered By: </span>{{plant.lastWateredBy}}</div>
-    <div><span>Last watered On: </span>{{plant.lastWateredOn}}</div>
     <div>
       <label>name:
         <input [(ngModel)]="plant.plantName" placeholder="name"/>
       </label>
     </div>
-  
+    <button (click)="goBack()">go back</button>
   </div>

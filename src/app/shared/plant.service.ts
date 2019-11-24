@@ -8,12 +8,17 @@ import { Observable } from 'rxjs';
 })
 export class PlantService {
 
-  readonly plantUrl = "http://localhost:3333/api/plants";
+  readonly plantsUrl = "http://localhost:3333/api/plants";
 
   constructor(private http :HttpClient) { }
 
   getPlants(): Observable<Plant[]>{
-    return this.http.get<Plant[]>(this.plantUrl);
+    return this.http.get<Plant[]>(this.plantsUrl);
+              
+  }
+
+  getPlant(id:number): Observable<Plant>{
+    return this.http.get<Plant>(this.plantsUrl+"/"+id);
               
   }
 }

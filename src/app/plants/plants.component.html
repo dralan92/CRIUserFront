@@ -1,10 +1,8 @@
 <h2>My Plants</h2>
 <ul class="plants">
-  <li *ngFor="let plant of plants"
-    [class.selected]="plant === selectedPlant"
-    (click)="onSelect(plant)">
-    <span class="badge">{{plant.plantId}}</span> {{plant.plantName}}
+  <li *ngFor="let plant of plants">
+    <a routerLink="/plant-detail/{{plant.plantId}}">
+      <span class="badge">{{plant.plantId}}</span> {{plant.plantName}}
+    </a>
   </li>
 </ul>
-
-<app-plant-detail [plant]="selectedPlant"></app-plant-detail>

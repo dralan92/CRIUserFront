@@ -14,7 +14,7 @@ export class PlantsComponent implements OnInit {
 
   selectedPlant:Plant;
 
-  constructor(private router:Router,
+  constructor(
               private plantService:PlantService) { }
 
   ngOnInit() {
@@ -29,9 +29,6 @@ export class PlantsComponent implements OnInit {
 
   }
 
-  onSelect(plant:Plant):void{
-    this.selectedPlant = plant;
-
-  }
+ 
 
 }
