@@ -3,7 +3,7 @@
   <li *ngFor="let plant of plants"
     [class.selected]="plant === selectedPlant"
     (click)="onSelect(plant)">
-    <span class="badge">{{plant.PlantId}}</span> {{plant.PlantName}}
+    <span class="badge">{{plant.plantId}}</span> {{plant.plantName}}
   </li>
 </ul>
 

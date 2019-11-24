@@ -16,6 +16,7 @@ import { HomeComponent } from './home/home.component';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { PlantsComponent } from './plants/plants.component';
 import { PlantDetailComponent } from './plants/plant-detail/plant-detail.component';
+import { PlantDashboardComponent } from './plants/plant-dashboard/plant-dashboard.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { PlantDetailComponent } from './plants/plant-detail/plant-detail.compone
     LoginComponent,
     HomeComponent,
     PlantsComponent,
-    PlantDetailComponent
+    PlantDetailComponent,
+    PlantDashboardComponent
   ],
   imports: [
     BrowserModule,

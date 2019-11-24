@@ -1,6 +1,8 @@
 export class Plant {
-    PlantId:number;
-    PlantName:string;
+    plantId:number;
+    plantName:string;
+    lastWateredOn:string;
+    lastWateredBy:string;
 
 }
 
