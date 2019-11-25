@@ -1,10 +1,29 @@
 <div *ngIf="plant">
-    <h2>{{plant.plantName | uppercase}} Details</h2>
+    <h2>{{plant.plantName | uppercase}} Details <app-counter></app-counter></h2>
     <div><span>id: </span>{{plant.plantId}}</div>
     <div>
       <label>name:
         <input [(ngModel)]="plant.plantName" placeholder="name"/>
       </label>
     </div>
-    <button (click)="goBack()">go back</button>
-  </div>
+
+    <button #water class="btn btn-primary" (click)="waterPlant()">Water Plant</button>
+    <button #watering class="btn btn-primary d-none" diabled>
+      <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true">
+      </span>Watering...
+    </button>
+    <button #cancel class="btn btn-secondary d-none" 
+                    (click)="cancelWatering()">Cancel Watering</button>
+    <div #progressWrapper class="d-none">
+      <label #progressStatus>50% Completed {{currentValue}}</label>
+      <div class="progress mb-3">
+        <div #progress class="progress-bar" 
+             role="progressbar" 
+             aria-valuenow="25"
+             aria-valuemin="0"
+             aria-valuemax="100"></div>
+      </div>
+    </div> 
+    <div #alert></div>
+    <button class="btn btn-primary" (click)="goBack()">go back</button>
+</div>

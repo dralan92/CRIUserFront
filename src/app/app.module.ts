@@ -17,6 +17,7 @@ import { AuthInterceptor } from './auth/auth.interceptor';
 import { PlantsComponent } from './plants/plants.component';
 import { PlantDetailComponent } from './plants/plant-detail/plant-detail.component';
 import { PlantDashboardComponent } from './plants/plant-dashboard/plant-dashboard.component';
+import { CounterComponent } from './plants/counter/counter.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { PlantDashboardComponent } from './plants/plant-dashboard/plant-dashboar
     HomeComponent,
     PlantsComponent,
     PlantDetailComponent,
-    PlantDashboardComponent
+    PlantDashboardComponent,
+    CounterComponent
   ],
   imports: [
     BrowserModule,

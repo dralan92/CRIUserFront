@@ -12,9 +12,9 @@ label {
     padding-left: .4em;
   }
   button {
-    margin-top: 20px;
+    margin: 20px;
     font-family: Arial;
-    background-color: #eee;
+    background-color: rgb(15, 134, 231);
     border: none;
     padding: 5px 10px;
     border-radius: 4px;
@@ -22,7 +22,7 @@ label {
     cursor: hand;
   }
   button:hover {
-    background-color: #cfd8dc;
+    background-color: #bceb14;
   }
   button:disabled {
     background-color: #eee;
