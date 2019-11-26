@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, EventEmitter, ChangeDetectorRef, ChangeDetectionStrategy, Input, Output } from '@angular/core';
 import {take} from 'rxjs/operators';
 import 'rxjs/add/operator/map';
 import { Subscription, Observable, interval } from 'rxjs';
@@ -13,44 +13,40 @@ import { Subscription, Observable, interval } from 'rxjs';
 export class CounterComponent implements OnInit {
 
   
-  startAt=10;
-  counterState = new EventEmitter<string>();
-  currentValue= '';
+  timeToWater =10;
+  
+
   currentSubscription:Subscription;
 
   constructor(private changeDetector:ChangeDetectorRef) { }
+  @Output() timeToWaterState = new EventEmitter<number>();
 
   ngOnInit() {
     this.start();
   }
 
   start(){
-    this.currentValue = this.formatValue(this.startAt);
+    
     this.changeDetector.detectChanges();
     const t:Observable<number> = interval(1000);
-    this.currentSubscription = t.pipe(take(this.startAt))
-                                .map(v=> this.startAt - (v+1))
+    this.currentSubscription = t.pipe(take(this.timeToWater))
+                                .map(v=> this.timeToWater - (v+1))
                                 .subscribe(v=>{
-                                  this.currentValue = this.formatValue(v);
+                                  this.timeToWaterState.emit(v);
                                   this.changeDetector.detectChanges();
                                 },
                                 err=>{
-                                  this.counterState.error(err);
+                                  this.timeToWaterState.error(err);
                                 },
                                 ()=>{
-                                  this.currentValue="0";
-                                  this.counterState.emit('COMPLETE');
+                                  
+                                 
                                   this.changeDetector.detectChanges();
                                 });
 
   }
 
-  public stop(){
-    this.currentSubscription.unsubscribe();
-    this.counterState.emit('ABORTED'); 
-  }
+  
 
-  formatValue(v){
-    return v;
-  }
+ 
 }

@@ -28,7 +28,7 @@ tiers:any;
     this.service.getUserProfile().subscribe(
       res=>{
         this.userDetails = res;
-        console.log(this.userDetails);
+        
         this.qService.formData.Username = this.userDetails.userName;
 
       },
@@ -42,7 +42,7 @@ tiers:any;
 
   onSubmit(form:NgForm){
     
-    console.log(form.value);
+    
   }
  
   initializeForm(form?:NgForm){
@@ -62,7 +62,7 @@ tiers:any;
     this.qService.getCountries().subscribe(
       res=>{
         this.countries = res;
-        console.log(this.countries);
+        
       },
       err=>{
         console.log(err);
@@ -74,7 +74,7 @@ tiers:any;
     this.qService.getTiers().subscribe(
       res=>{
         this.tiers = res;
-        console.log(this.tiers);
+        
       },
       err=>{
         console.log(err);

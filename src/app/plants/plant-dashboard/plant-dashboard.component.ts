@@ -10,13 +10,14 @@ import { PlantService } from 'src/app/shared/plant.service';
 export class PlantDashboardComponent implements OnInit {
   plants: Plant[];
 
+
   constructor(private plantService:PlantService) { }
 
   ngOnInit() {
     this.plantService.getPlants().subscribe(
       res=>{
         this.plants=res;
-        console.log(this.plants);
+        
       },
       err=>{console.log(err);}
     );

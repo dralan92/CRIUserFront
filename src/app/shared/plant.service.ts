@@ -21,4 +21,8 @@ export class PlantService {
     return this.http.get<Plant>(this.plantsUrl+"/"+id);
               
   }
+
+  updatePlant(id:number, plant:Plant){
+    return this.http.put(this.plantsUrl+"/"+id,plant);
+  }
 }
